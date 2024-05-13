@@ -92,12 +92,12 @@ class Merge(threading.Thread):
                 if len(folder_path)==0:
                     raise Exception("No xml found in this folder path")
                 data = self.parse_xml(folder_path[0])  # Parse XML data
-                excel_output_path=r"C:\Users\yamanurip\Desktop\Prasanth_Task\Merge.xlsx"
+                excel_output_path=os.path.join(self.bat_file, "Merge.xlsx")
                 self.generate_excel(data, excel_output_path)  # Generate Excel file
                 # Result path for command-line mode
                 self.log_update("Excel file generated: {0}".format(excel_output_path))
 
-                log_output_path=r"C:\Users\yamanurip\Desktop\Prasanth_Task\Merge.log"
+                log_output_path=os.path.join(self.bat_file, "Merge.log")
                 #shutil.copy("Merge.log",log_output_path)  # Copy log file to output folder
                 self.log_update("Log file generated: {0}".format(log_output_path))
 
